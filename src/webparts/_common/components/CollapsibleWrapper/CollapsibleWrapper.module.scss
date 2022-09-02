@@ -1,0 +1,35 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.header {
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 25px;
+}
+
+.controls {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+
+.thearrow {
+  transition: transform 0.26s ease;
+  transform-origin: center;
+  margin-right: 10px;
+  float: left;
+}
+
+.CollapsibleWrapper {
+  margin: 0px;
+}
+
+.Collapsible {
+  transform-origin: right;
+  transition: max-height 0.26s ease-in-out;
+  overflow: hidden;
+  margin: 1px;
+  width: 100%;
+  height: auto;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}

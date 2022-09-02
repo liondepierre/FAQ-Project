@@ -1,0 +1,39 @@
+.panelContainer {
+    display: flex;
+    justify-content: start;
+    margin-left: 35px;    
+    margin-top: 2px;
+}
+
+.questions {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    justify-content: left;
+}
+
+
+.bar {
+    position: relative;
+    background-color: lightgray;
+    height: 1px;
+    top: calc(5% - 1px);
+    margin: 15px; 
+}
+
+.panelQuestionsContainer {
+    border-bottom: black;
+    height: 50%;
+}
+
+.panelQuestionsContainer:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.answer {
+    background-color: #FAFAFA;
+    font-size: larger;
+}

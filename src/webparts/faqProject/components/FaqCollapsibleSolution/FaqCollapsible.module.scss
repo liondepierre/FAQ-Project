@@ -1,0 +1,33 @@
+.collapseContainer {
+  text-align: left;
+  padding: 10px 20px;
+  margin: 5px 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: "Segoe UI";
+  font-weight: normal;
+}
+
+.questionsContainer {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0px;
+  margin-top: 17px;
+  // margin-bottom: 17px;
+  
+}
+
+.questionsContainer:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.collapsibleAnswerContainer {
+  margin-top: 0.1px;
+  margin-bottom: 0.1px;
+  background-color: #fafafa;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+}
