@@ -1,10 +1,10 @@
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import { CommandButton, DefaultButton, Dialog, DialogFooter, Icon, IconButton, Panel, PrimaryButton, SearchBox, Spinner, Stack, Text } from 'office-ui-fabric-react';
+import { Callout, CommandButton, DefaultButton, Dialog, DialogFooter, Icon, IconButton, Panel, PrimaryButton, SearchBox, Spinner, Stack, Text } from 'office-ui-fabric-react';
 import *as React from 'react'
 import { FAQProvider, IFAQProvider } from '../../../../providers/FAQProvider';
+import { Category } from '../../../models/Category';
 import { FAQ } from '../../../models/FAQ';
 import CollapsibleWrapper from '../../../_common/components/CollapsibleWrapper/CollapsibleWrapper';
-import { IFaqProjectState } from '../FaqProject';
 import styles from './FaqCollapsible.module.scss';
 
 export interface IFaqCollapsibleProps {
@@ -14,73 +14,99 @@ export interface IFaqCollapsibleProps {
   isAdmin: boolean;
 }
 
-export interface IFaqCollapsibleState {
-}
+  const FaqCollapsible = ({questions, deleteFAQ, updateFAQ, isAdmin}: IFaqCollapsibleProps) => {
 
+    const [categories, setCategories] = React.useState<Category[]>([]);
 
-export default class FaqCollapsible extends React.Component<IFaqCollapsibleProps, IFaqCollapsibleState> {
-  constructor(props){
-    super(props);
-    this.state = {
-    };
-  }
-  
-  render(): React.ReactElement<IFaqCollapsibleProps> {
     return (
       <div>
-        <Stack tabIndex={1} className={styles.collapseContainer}>
-          {this.props.questions.map((element, i) => {
-              return (
-                <CollapsibleWrapper
-                  titleElement={
-                    <div className={styles.questionsContainer}>
+      <Stack tabIndex={1} className={styles.collapseContainer}>
+        {questions.map((element, i) => {
+          return (
+            <CollapsibleWrapper
+              titleElement={
+                <div className={styles.questionsContainer}>
+                  <Text
+                    variant="large"
+                    style={{
+                      paddingBottom: "10px",
+                      paddingTop: "10px",
+                      display: "flex",
+                    }}
+                  >
+                    {element.Question}
+                  </Text>
+                </div>
+              }
+            >
+              <div className={styles.collapsibleAnswerContainer}>
+                <Stack
+                  style={{ marginBottom: "3px", marginLeft: "17px" }}
+                  horizontal
+                  tokens={{ childrenGap: "5px" }}
+                >
+                  {element.FAQ_Category.map((category, index) => {
+                    return (
                       <Text
-                        variant="large"
                         style={{
-                          paddingBottom: "10px",
-                          paddingTop: "10px",
-                          display: "flex",
+                          color: "white",
+                          paddingTop: "7px",
+                          paddingRight: "8px",
+                          paddingLeft: "8px",
+                          paddingBottom: "7px",
+                          background: "#aaa",
+                          borderRadius: "5px",
+                          fontFamily: "Segoe UI",
+                          fontWeight: "normal",
+                          fontSize: "13px",
                         }}
                       >
-                        {element.Question}
+                        {category.Title}
                       </Text>
-                    </div>
-                  }
-                >
-                  <div className={styles.collapsibleAnswerContainer}>
-                    <Text
+                    );
+                  })}
+                  {isAdmin && (
+                    <IconButton
+                      onClick={() => updateFAQ(element)}
                       style={{
-                        paddingRight: "22px",
-                        paddingLeft: "22px",
-                        display: "inline-block",
-                        fontFamily: "Segoe UI",
-                        fontWeight: "normal",
-                        fontSize: "18px",
+                        paddingBottom: "6px",
+                        margin: "0px 0px 0px 7px",
                       }}
-                    >
-                      {element.Answer}
-                    </Text>
+                      iconProps={{ iconName: "Edit" }}
+                    /> 
+                  )}
+                  {isAdmin && (
+                    <IconButton
+                      onClick={() => deleteFAQ(element)}
+                      style={{
+                        paddingBottom: "6px",
+                        margin: "0px 0px 0px 1px",
+                      }}
+                      iconProps={{ iconName: "Delete" }}
+                    />
+                  )}
+                </Stack>
 
-                    {this.props.isAdmin && (
-                      <Stack horizontal>
-                        <IconButton
-                          onClick={() => this.props.deleteFAQ(element)}
-                          style={{ margin: "0px 0px 0px 13px" }}
-                          iconProps={{ iconName: "Delete" }}
-                        />
-
-                        <IconButton
-                          onClick={() => this.props.updateFAQ(element)}
-                          iconProps={{ iconName: "Edit" }}
-                        />
-                      </Stack>
-                    )}
-                  </div>
-                </CollapsibleWrapper>
-              );
-            })}
-        </Stack>
-      </div>
-    );
+                <div
+                  dangerouslySetInnerHTML={{ __html: element.Answer }}
+                  style={{
+                    paddingRight: "22px",
+                    paddingLeft: "22px",
+                    display: "inline-block",
+                    fontFamily: "Segoe UI",
+                    fontWeight: "normal",
+                    fontSize: "18px",
+                  }}
+                >
+                </div>
+              </div>
+            </CollapsibleWrapper>
+          );
+        })}
+      </Stack>
+    </div>
+    )
   }
-}
+  
+
+  export default FaqCollapsible

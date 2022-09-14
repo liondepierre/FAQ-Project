@@ -1,10 +1,7 @@
 .collapseContainer {
   text-align: left;
-  padding: 10px 20px;
-  margin: 5px 0;
+  margin: 30px 0 0 0;
   width: 100%;
-  border: none;
-  outline: none;
   font-family: "Segoe UI";
   font-weight: normal;
 }
@@ -14,13 +11,12 @@
   width: 100%;
   height: 100%;
   margin-bottom: 0px;
-  margin-top: 17px;
-  // margin-bottom: 17px;
-  
+  margin-top: 1px;
+
 }
 
 .questionsContainer:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: 0 0 0.7px black;
 }
 
 .collapsibleAnswerContainer {
@@ -30,4 +26,5 @@
   padding: 10px 0px 10px 0px;
   width: 100%;
   height: 100%;
+
 }

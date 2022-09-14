@@ -32,6 +32,10 @@ export class FAQProvider implements IFAQProvider {
         await this._sp.web.lists.getById(this.faqListId).items.add(newFAQ);
     } 
 
+    private async updateFAQ(updateFAQ: FAQ): Promise<void> {
+        await this._sp.web.lists.getById(this.faqListId).items.getById(updateFAQ.ID).update(updateFAQ);
+    }
+
     public async deleteFAQ(faq: FAQ): Promise<void> {
         await this._sp.web.lists.getById(this.faqListId).items.getById(faq.ID).delete();
     }
@@ -41,15 +45,13 @@ export class FAQProvider implements IFAQProvider {
         delete faq["odata.etag"];
         delete faq["odata.id"];
         delete faq["odata.type"];
+        delete faq["FAQ_Category@odata.navigationLinkUrl"];
+        delete faq.FAQ_Category;
         if (!faq.ID) {
             await this.createFAQ(faq);
         } else {
             await this.updateFAQ(faq);
         }
-    }
-
-    private async updateFAQ(updateFAQ: FAQ): Promise<void> {
-        await this._sp.web.lists.getById(this.faqListId).items.getById(updateFAQ.ID).update(updateFAQ);
     }
 
     public generateEmptyFAQ(): FAQ {

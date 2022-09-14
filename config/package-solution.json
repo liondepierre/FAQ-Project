@@ -3,7 +3,7 @@
   "solution": {
     "name": "faq-project-client-side-solution",
     "id": "899d3707-b7db-4cee-aa2e-2ed99a70025d",
-    "version": "1.0.0.15",
+    "version": "1.0.0.16",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": true,

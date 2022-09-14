@@ -33,3 +33,27 @@
   margin-top: 1px;
   margin-bottom: 1px;
 }
+
+.hDivider {
+  margin: auto;
+  margin-top: 0px;
+  width: 100%;
+  position: relative;
+}
+
+.hDivider .shadow {
+  overflow: hidden;
+  height: 10px;
+}
+
+.hDivider .shadow:after {
+  content: '';
+  display: block;
+  margin: -25px auto 0;
+  width: 100%;
+  height: 19px;
+  
+  box-shadow: 0 0 8px black;
+}
+
+
