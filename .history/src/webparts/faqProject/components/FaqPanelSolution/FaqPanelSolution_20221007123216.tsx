@@ -14,6 +14,7 @@ export interface IFaqPanelSolutionProps {
 
 
 
+
 const FaqPanelSolution = ({questions, isAdmin, deleteFAQ, updateFAQ}: IFaqPanelSolutionProps) => {
 
   const [questionOpened, setQuestionOpened] = useState<IFAQ>(null);

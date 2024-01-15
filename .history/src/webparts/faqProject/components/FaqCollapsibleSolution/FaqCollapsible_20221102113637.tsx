@@ -31,7 +31,7 @@ export interface IFaqCollapsibleProps {
                       display: "flex",
                     }}
                   >
-                    {element.Question}
+                    {element.Questqwdqwdion}
                   </Text>
                 </div>
               }

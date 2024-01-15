@@ -2,7 +2,7 @@ import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { ActionButton, BaseButton, Button, ChoiceGroup, DefaultButton, IChoiceGroupOption, Icon, IconButton, Label, Panel, PanelType, PrimaryButton, SearchBox, Stack, Text } from 'office-ui-fabric-react';
 import *as React from 'react'
 import { useState } from 'react';
-import { IFAQ } from '../../../models/IFAQ';
+import { IFAQ } from '../../../models/FAQ';
 import styles from './FaqPanel.module.scss';
 
 export interface IFaqPanelSolutionProps {
@@ -11,6 +11,7 @@ export interface IFaqPanelSolutionProps {
     deleteFAQ: (deletedFAQ: IFAQ) => void;
     updateFAQ: (FAQtoUpdate: IFAQ) => void;
 }
+
 
 
 

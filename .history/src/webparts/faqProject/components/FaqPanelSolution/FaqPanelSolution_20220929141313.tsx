@@ -2,28 +2,29 @@ import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { ActionButton, BaseButton, Button, ChoiceGroup, DefaultButton, IChoiceGroupOption, Icon, IconButton, Label, Panel, PanelType, PrimaryButton, SearchBox, Stack, Text } from 'office-ui-fabric-react';
 import *as React from 'react'
 import { useState } from 'react';
-import { IFAQ } from '../../../models/IFAQ';
+import { FAQ } from '../../../models/FAQ';
 import styles from './FaqPanel.module.scss';
 
 export interface IFaqPanelSolutionProps {
-    questions: IFAQ[];
+    questions: FAQ[];
     isAdmin: boolean;
-    deleteFAQ: (deletedFAQ: IFAQ) => void;
-    updateFAQ: (FAQtoUpdate: IFAQ) => void;
+    deleteFAQ: (deletedFAQ: FAQ) => void;
+    updateFAQ: (FAQtoUpdate: FAQ) => void;
 }
+
 
 
 
 const FaqPanelSolution = ({questions, isAdmin, deleteFAQ, updateFAQ}: IFaqPanelSolutionProps) => {
 
-  const [questionOpened, setQuestionOpened] = useState<IFAQ>(null);
+  const [questionOpened, setQuestionOpened] = useState<FAQ>(null);
 
-  const onPanelClick = (value: IFAQ) => {
+  const onPanelClick = (value: FAQ) => {
     setQuestionOpened((prev) => prev = value);
   }
   
   const onPanelClickNull = (): void => {
-    setQuestionOpened((prev: IFAQ) => prev = null);
+    setQuestionOpened((prev: FAQ) => prev = null);
   }
 
 
